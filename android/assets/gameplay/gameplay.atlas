@@ -6,49 +6,133 @@ filter: Nearest,Nearest
 repeat: none
 bg
   rotate: false
-  xy: 2, 146
+  xy: 2, 149
   size: 800, 354
   orig: 800, 354
   offset: 0, 0
   index: -1
 blank
   rotate: false
-  xy: 906, 499
+  xy: 2, 2
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
 fish
   rotate: false
-  xy: 104, 94
+  xy: 952, 453
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
 mine
   rotate: false
-  xy: 804, 378
+  xy: 804, 165
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
+shark2Dead
+  rotate: false
+  xy: 150, 77
+  size: 132, 70
+  orig: 132, 70
+  offset: 0, 0
+  index: -1
+shark2Left
+  rotate: false
+  xy: 804, 361
+  size: 132, 70
+  orig: 132, 70
+  offset: 0, 0
+  index: -1
+shark2Right
+  rotate: false
+  xy: 150, 5
+  size: 132, 70
+  orig: 132, 70
+  offset: 0, 0
+  index: -1
+shark3Dead
+  rotate: false
+  xy: 392, 77
+  size: 100, 70
+  orig: 100, 70
+  offset: 0, 0
+  index: -1
+shark3Left
+  rotate: false
+  xy: 804, 217
+  size: 100, 70
+  orig: 100, 70
+  offset: 0, 0
+  index: -1
+shark3Right
+  rotate: false
+  xy: 392, 5
+  size: 100, 70
+  orig: 100, 70
+  offset: 0, 0
+  index: -1
+shark4Dead
+  rotate: false
+  xy: 2, 77
+  size: 146, 70
+  orig: 146, 70
+  offset: 0, 0
+  index: -1
+shark4Left
+  rotate: false
+  xy: 804, 433
+  size: 146, 70
+  orig: 146, 70
+  offset: 0, 0
+  index: -1
+shark4Right
+  rotate: false
+  xy: 2, 5
+  size: 146, 70
+  orig: 146, 70
+  offset: 0, 0
+  index: -1
+shark5Dead
+  rotate: false
+  xy: 284, 77
+  size: 106, 70
+  orig: 106, 70
+  offset: 0, 0
+  index: -1
+shark5Left
+  rotate: false
+  xy: 804, 289
+  size: 106, 70
+  orig: 106, 70
+  offset: 0, 0
+  index: -1
+shark5Right
+  rotate: false
+  xy: 284, 5
+  size: 106, 70
+  orig: 106, 70
+  offset: 0, 0
+  index: -1
 sharkDead
   rotate: false
-  xy: 2, 74
+  xy: 494, 77
   size: 100, 70
   orig: 100, 70
   offset: 0, 0
   index: -1
 sharkLeft
   rotate: false
-  xy: 804, 430
+  xy: 494, 5
   size: 100, 70
   orig: 100, 70
   offset: 0, 0
   index: -1
 sharkRight
   rotate: false
-  xy: 2, 2
+  xy: 596, 77
   size: 100, 70
   orig: 100, 70
   offset: 0, 0

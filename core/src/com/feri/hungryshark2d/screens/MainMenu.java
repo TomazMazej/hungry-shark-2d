@@ -9,7 +9,6 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -18,12 +17,9 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.feri.hungryshark2d.HungryShark2D;
@@ -86,6 +82,7 @@ public class MainMenu extends ScreenAdapter {
 
         TextureRegion tittleImage = gamePlayAtlas.findRegion(RegionNames.TITLE);
         Image title = new Image(tittleImage);
+        //.setColor(Color.BLUE);
 
         TextureRegion playButton = gamePlayAtlas.findRegion(RegionNames.PLAY_B);
         TextureRegion shopButton = gamePlayAtlas.findRegion(RegionNames.SHOP_B);
@@ -151,11 +148,11 @@ public class MainMenu extends ScreenAdapter {
             }
         });
 
-        table.add(muteBImageButton).padRight(-540).padTop(-20);
+        table.add(muteBImageButton).padRight(-550);
         table.row();
-        table.add(title).padTop(-20);
+        table.add(title).padTop(-40);
         table.row();
-        table.add(playBImageButton).row();
+        table.add(playBImageButton).padTop(50).row();
         table.add(shopBImageButton).row();
         table.add(exitBImageButton).row();
 

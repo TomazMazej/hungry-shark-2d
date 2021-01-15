@@ -3,15 +3,11 @@ package com.feri.hungryshark2d.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -21,22 +17,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Value;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.feri.hungryshark2d.HungryShark2D;
 import com.feri.hungryshark2d.assets.AssetDescriptors;
 import com.feri.hungryshark2d.assets.RegionNames;
-import com.feri.hungryshark2d.util.GameManager;
-
-import javax.swing.Box;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JTable;
 
 import static com.feri.hungryshark2d.config.GameConfig.HEIGHT;
 import static com.feri.hungryshark2d.config.GameConfig.WIDTH;
@@ -76,7 +62,7 @@ public class Shop extends ScreenAdapter {
     }
 
     private Actor createUI(){
-        Table table = new Table();
+        final Table table = new Table();
         table.defaults().pad(10);
 
         TextureAtlas gamePlayAtlas = manager.get(AssetDescriptors.SHOP);
@@ -84,7 +70,8 @@ public class Shop extends ScreenAdapter {
         TextureRegion bg = gamePlayAtlas.findRegion(RegionNames.BG_SHOP);
         table.setBackground(new TextureRegionDrawable(bg));
 
-        TextureRegion tittleImage = gamePlayAtlas.findRegion(RegionNames.SHOP_B);
+        TextureAtlas gameplayAtlas = manager.get(AssetDescriptors.MENU);
+        TextureRegion tittleImage = gameplayAtlas.findRegion(RegionNames.SHOP_B);
         Image title = new Image(tittleImage);
 
         TextureRegion shark1 = gamePlayAtlas.findRegion(RegionNames.SHARK1);
@@ -235,9 +222,9 @@ public class Shop extends ScreenAdapter {
         table.add(title).padLeft(-300).padTop(-5);
         table.row();
         table.columnDefaults(1);
-        table.add(shark1ImageButton).padTop(-10);
-        table.add(shark2ImageButton).padTop(-10);
-        table.add(shark3ImageButton).padTop(-10).row();
+        table.add(shark1ImageButton).padTop(10);
+        table.add(shark2ImageButton).padTop(10);
+        table.add(shark3ImageButton).padTop(10).row();
         table.add(price1);
         table.add(grp);
         table.add(grp2).row();
@@ -246,8 +233,8 @@ public class Shop extends ScreenAdapter {
         table.add(shark6ImageButton).padTop(-10).row();
         table.add(grp3).padTop(30);
         table.add(grp4).padTop(30).row();
-        table.add(backBImageButton).padLeft(-230);
-        table.add(scanBImageButton).padRight(-470);
+        table.add(backBImageButton).padLeft(-230).padTop(-5);
+        table.add(scanBImageButton).padRight(-470).padTop(-5);
 
         table.center();
         table.setFillParent(true);

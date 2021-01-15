@@ -6,84 +6,85 @@ filter: Nearest,Nearest
 repeat: none
 back
   rotate: false
-  xy: 904, 851
+  xy: 904, 873
   size: 39, 40
   orig: 39, 40
   offset: 0, 0
   index: -1
 bg_end
   rotate: false
-  xy: 2, 218
+  xy: 2, 240
   size: 810, 405
   orig: 810, 405
   offset: 0, 0
   index: -1
 bg_shop
   rotate: false
-  xy: 2, 625
+  xy: 2, 647
   size: 900, 338
   orig: 900, 338
   offset: 0, 0
   index: -1
+coin1
+  rotate: false
+  xy: 258, 207
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+coin2
+  rotate: false
+  xy: 2, 2
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
 scan
   rotate: false
-  xy: 814, 583
+  xy: 814, 605
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
 shark1
   rotate: false
-  xy: 2, 2
+  xy: 2, 24
   size: 100, 70
   orig: 100, 70
   offset: 0, 0
   index: -1
 shark2
   rotate: false
-  xy: 2, 74
+  xy: 2, 96
   size: 132, 70
   orig: 132, 70
   offset: 0, 0
   index: -1
 shark3
   rotate: false
-  xy: 136, 74
+  xy: 136, 96
   size: 100, 70
   orig: 100, 70
   offset: 0, 0
   index: -1
 shark4
   rotate: false
-  xy: 2, 146
+  xy: 2, 168
   size: 146, 70
   orig: 146, 70
   offset: 0, 0
   index: -1
 shark5
   rotate: false
-  xy: 150, 146
+  xy: 150, 168
   size: 106, 70
   orig: 106, 70
   offset: 0, 0
   index: -1
 shark6
   rotate: false
-  xy: 904, 893
+  xy: 904, 915
   size: 114, 70
   orig: 114, 70
-  offset: 0, 0
-  index: -1
-
-shop2.png
-size: 1024,512
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-bg_shop2
-  rotate: false
-  xy: 2, 2
-  size: 626, 417
-  orig: 626, 417
   offset: 0, 0
   index: -1

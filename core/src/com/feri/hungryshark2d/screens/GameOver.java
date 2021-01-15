@@ -38,7 +38,7 @@ public class GameOver extends ScreenAdapter {
 
     private FillViewport fillViewport;
     private SpriteBatch batch;
-    //public static BitmapFont font;
+    public static BitmapFont font;
     private HungryShark2D game;
     private AssetManager manager;
     private Stage stage;
@@ -75,6 +75,9 @@ public class GameOver extends ScreenAdapter {
         Table table = new Table();
         table.defaults().pad(10);
 
+        //font = manager.get(AssetDescriptors.FONT2);
+        font = GameManager.generateFont2();
+
         TextureAtlas gamePlayAtlas = manager.get(AssetDescriptors.MENU);
 
         TextureRegion bg = gamePlayAtlas.findRegion(RegionNames.BG_MENU);
@@ -86,11 +89,11 @@ public class GameOver extends ScreenAdapter {
         TextureRegion gameOverImage = gamePlayAtlas.findRegion(RegionNames.GAMEOVER);
         Image theEnd = new Image(gameOverImage);
 
-        Label score = new Label("SCORE: " + GameManager.INSTANCE.getScore(), skin);
-        score.setColor(Color.WHITE);
+        Label score;
+        score = new Label("SCORE: " + GameManager.INSTANCE.getScore(), new Label.LabelStyle(font, Color.valueOf("#AED6F1")));
 
-        Label highScore = new Label("HIGHSCORE: " + GameManager.INSTANCE.getHighScore(), skin);
-        highScore.setColor(Color.WHITE);
+        Label highScore;
+        highScore = new Label("HIGHSCORE: " + GameManager.INSTANCE.getHighScore(), new Label.LabelStyle(font, Color.valueOf("#AED6F1")));
 
         ImageButton.ImageButtonStyle playBImageStyle = new ImageButton.ImageButtonStyle();
         playBImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(replayButton));
@@ -114,15 +117,14 @@ public class GameOver extends ScreenAdapter {
             }
         });
 
-        table.add(theEnd);
+        table.add(theEnd).padTop(-20);
         table.row();
         table.add(score);
         table.row();
         table.add(highScore);
         table.row();
-        table.add(playBImageButton).row();
+        table.add(playBImageButton).padTop(40).row();
         table.add(homeBImageButton).row();
-
         table.center();
         table.setFillParent(true);
         table.pack();

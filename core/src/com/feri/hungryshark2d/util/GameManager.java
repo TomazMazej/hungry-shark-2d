@@ -143,6 +143,17 @@ public class GameManager {
         return font32;
     }
 
+    public static BitmapFont generateFont2() {
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/rebelnation.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 25;
+        parameter.magFilter = Texture.TextureFilter.Linear;
+        parameter.minFilter = Texture.TextureFilter.Linear;
+        BitmapFont font32 = generator.generateFont(parameter); // font size 32 pixels
+        generator.dispose();
+        return font32;
+    }
+
     public static float getFontSize(BitmapFont font, String text){
         GlyphLayout glyphLayout = new GlyphLayout();
         glyphLayout.setText(font,text);
