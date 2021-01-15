@@ -1,0 +1,55 @@
+
+gameplay.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bg
+  rotate: false
+  xy: 2, 146
+  size: 800, 354
+  orig: 800, 354
+  offset: 0, 0
+  index: -1
+blank
+  rotate: false
+  xy: 906, 499
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+fish
+  rotate: false
+  xy: 104, 94
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+mine
+  rotate: false
+  xy: 804, 378
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+sharkDead
+  rotate: false
+  xy: 2, 74
+  size: 100, 70
+  orig: 100, 70
+  offset: 0, 0
+  index: -1
+sharkLeft
+  rotate: false
+  xy: 804, 430
+  size: 100, 70
+  orig: 100, 70
+  offset: 0, 0
+  index: -1
+sharkRight
+  rotate: false
+  xy: 2, 2
+  size: 100, 70
+  orig: 100, 70
+  offset: 0, 0
+  index: -1
