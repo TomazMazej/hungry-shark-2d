@@ -32,17 +32,12 @@ public class MainMenu extends ScreenAdapter {
     private AssetManager manager;
     private FillViewport fillViewport;
     private Stage stage;
-    private SpriteBatch batch;
-    private Skin skin;
     private Music background_music;
 
     public MainMenu(HungryShark2D hs2d)  {
-        batch = new SpriteBatch();
         this.game = hs2d;
         manager = game.getAssetManager();
-
-        TextureAtlas gamePlayAtlas = manager.get(AssetDescriptors.GAME_PLAY);
-        GameManager.INSTANCE.getCoinsFromBC();
+        GameManager.INSTANCE.getCoinsFromBC(); //dobimo coine ko zazenemo igro
 
         background_music = manager.get(AssetDescriptors.BACKGROUND_MUSIC);
         background_music.play();
@@ -56,8 +51,6 @@ public class MainMenu extends ScreenAdapter {
     public void show() {
         fillViewport = new FillViewport(WIDTH, HEIGHT);
         stage = new Stage(fillViewport, game.getBatch());
-
-        skin = manager.get(AssetDescriptors.UI_SKIN);
 
         Gdx.input.setInputProcessor(stage);
         stage.addActor(createUI());
@@ -82,7 +75,6 @@ public class MainMenu extends ScreenAdapter {
 
         TextureRegion tittleImage = gamePlayAtlas.findRegion(RegionNames.TITLE);
         Image title = new Image(tittleImage);
-        //.setColor(Color.BLUE);
 
         TextureRegion playButton = gamePlayAtlas.findRegion(RegionNames.PLAY_B);
         TextureRegion shopButton = gamePlayAtlas.findRegion(RegionNames.SHOP_B);
@@ -148,14 +140,13 @@ public class MainMenu extends ScreenAdapter {
             }
         });
 
-        table.add(muteBImageButton).padRight(-550);
+        table.add(muteBImageButton).padRight(-500);
         table.row();
         table.add(title).padTop(-40);
         table.row();
         table.add(playBImageButton).padTop(50).row();
         table.add(shopBImageButton).row();
         table.add(exitBImageButton).row();
-
         table.center();
         table.setFillParent(true);
         table.pack();
@@ -173,7 +164,6 @@ public class MainMenu extends ScreenAdapter {
     public void resize(int width, int height) {
         super.resize(width, height);
         fillViewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
-        //tableMain.pack();
     }
 
     @Override

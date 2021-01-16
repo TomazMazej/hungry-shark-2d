@@ -33,11 +33,9 @@ public class Shop extends ScreenAdapter {
     private AssetManager manager;
     private FillViewport fillViewport;
     private Stage stage;
-    private SpriteBatch batch;
     private Skin skin;
 
     public Shop(HungryShark2D hs2d)  {
-        batch = new SpriteBatch();
         this.game = hs2d;
         manager = game.getAssetManager();
     }
