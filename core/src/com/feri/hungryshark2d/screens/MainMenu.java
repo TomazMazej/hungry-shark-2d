@@ -31,12 +31,9 @@ public class MainMenu extends ScreenAdapter {
     private AssetManager manager;
     private FillViewport fillViewport;
     private Stage stage;
-    private SpriteBatch batch;
-    private Skin skin;
     private Music background_music;
 
     public MainMenu(HungryShark2D hs2d)  {
-        batch = new SpriteBatch();
         this.game = hs2d;
         manager = game.getAssetManager();
 
@@ -55,8 +52,6 @@ public class MainMenu extends ScreenAdapter {
     public void show() {
         fillViewport = new FillViewport(WIDTH, HEIGHT);
         stage = new Stage(fillViewport, game.getBatch());
-
-        skin = manager.get(AssetDescriptors.UI_SKIN);
 
         Gdx.input.setInputProcessor(stage);
         stage.addActor(createUI());
