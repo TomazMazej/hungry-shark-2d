@@ -251,9 +251,9 @@ public class Shop extends ScreenAdapter {
             }
         });
 
-        table.add(coins).padRight(-820).padTop(-5);
-        table.add(coinImage).padRight(-450).padTop(-5);
-        table.add(title).padLeft(-300).padTop(-5);
+        table.add(coins).padRight(-800).padTop(10);
+        table.add(coinImage).padRight(-500).padTop(10);
+        table.add(title).padLeft(-250).padTop(15);
         table.row();
         table.columnDefaults(1);
         table.add(shark1ImageButton).padTop(10);
@@ -267,8 +267,8 @@ public class Shop extends ScreenAdapter {
         table.add(shark6ImageButton).padTop(-10).row();
         table.add(grp3).padTop(30);
         table.add(grp4).padTop(30).row();
-        table.add(backBImageButton).padLeft(-230).padTop(-5);
-        table.add(scanBImageButton).padRight(-470).padTop(-5);
+        table.add(backBImageButton).padLeft(-230).padTop(-10);
+        table.add(scanBImageButton).padRight(-470).padTop(-10);
 
         table.center();
         table.setFillParent(true);

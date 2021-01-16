@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.feri.hungryshark2d.HungryShark2D;
 import com.feri.hungryshark2d.retrofit.GetCoinsRequest;
 import com.feri.hungryshark2d.retrofit.GetSkinsRequest;
-import com.feri.hungryshark2d.retrofit.JsonPlaceHolderApi;
+import com.feri.hungryshark2d.retrofit.BlockchainApi;
 import com.feri.hungryshark2d.retrofit.PostRequest;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class GameManager {
     private int coins;
     private String idUSER;
     private PostRequest postRequest;
-    private JsonPlaceHolderApi jsonPlaceHolderApi;
+    private BlockchainApi blockchainApi;
     private int c = 0;
     private ArrayList<String> skins;
     private boolean mute;
@@ -68,9 +68,9 @@ public class GameManager {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<GetCoinsRequest> coinsCall = jsonPlaceHolderApi.getCoinsPost(idUSER);
-        Call<GetSkinsRequest> skinsCall = jsonPlaceHolderApi.getSkinsPost(idUSER);
+        blockchainApi = retrofit.create(BlockchainApi.class);
+        Call<GetCoinsRequest> coinsCall = blockchainApi.getCoinsPost(idUSER);
+        Call<GetSkinsRequest> skinsCall = blockchainApi.getSkinsPost(idUSER);
 
         coinsCall.enqueue(new Callback<GetCoinsRequest>() {
             @Override
@@ -119,16 +119,13 @@ public class GameManager {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        //postRequest = new PostRequest(idUSER, coins, "");
-        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+        blockchainApi = retrofit.create(BlockchainApi.class);
         Call<PostRequest> call;
-        if(skin == ""){
-            call = jsonPlaceHolderApi.createCoinPost(idUSER, skin, coins);
+        if(skin == ""){ //poslje POST
+            call = blockchainApi.createCoinPost(idUSER, skin, coins);
         }else{
-            call = jsonPlaceHolderApi.createSkinPost(idUSER, skin, coins);
+            call = blockchainApi.createSkinPost(idUSER, skin, coins);
         }
-        //poslje POST
-        //System.out.println(new Gson().toJson(postRequest));
 
         call.enqueue(new Callback<PostRequest>() {
             @Override

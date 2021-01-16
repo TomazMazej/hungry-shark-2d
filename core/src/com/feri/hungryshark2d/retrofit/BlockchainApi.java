@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-public interface JsonPlaceHolderApi {
+public interface BlockchainApi {
 
     @FormUrlEncoded
     @POST("receive")
@@ -28,8 +28,4 @@ public interface JsonPlaceHolderApi {
 
     @GET("users/skins/{id}")
     Call<GetSkinsRequest> getSkinsPost(@Path("id") String id);
-    //isto get pa post še za skine!
-    //2 nova razreda za get in post pa poimenuj tak da se bo vedl
-    //isto funkcije v GameManager in potem kličeš get v shopu
-    //v shopu treba dodat if stavke če smo ze kupl da removamo ceno in pa omejimo da nemores zbrat sharka ko ga se nisi kupo
 }

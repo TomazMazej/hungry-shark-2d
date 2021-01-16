@@ -6,28 +6,28 @@ filter: Nearest,Nearest
 repeat: none
 back
   rotate: false
-  xy: 904, 873
+  xy: 220, 142
   size: 39, 40
   orig: 39, 40
   offset: 0, 0
   index: -1
 bg_end
   rotate: false
-  xy: 2, 240
+  xy: 2, 184
   size: 810, 405
   orig: 810, 405
   offset: 0, 0
   index: -1
 bg_shop
   rotate: false
-  xy: 2, 647
+  xy: 2, 591
   size: 900, 338
   orig: 900, 338
   offset: 0, 0
   index: -1
 coin1
   rotate: false
-  xy: 258, 207
+  xy: 904, 712
   size: 31, 31
   orig: 31, 31
   offset: 0, 0
@@ -41,7 +41,7 @@ coin2
   index: -1
 scan
   rotate: false
-  xy: 814, 605
+  xy: 814, 549
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
@@ -55,35 +55,35 @@ shark1
   index: -1
 shark2
   rotate: false
-  xy: 2, 96
-  size: 132, 70
-  orig: 132, 70
+  xy: 104, 50
+  size: 100, 60
+  orig: 100, 60
   offset: 0, 0
   index: -1
 shark3
   rotate: false
-  xy: 136, 96
-  size: 100, 70
-  orig: 100, 70
+  xy: 904, 745
+  size: 100, 82
+  orig: 100, 82
   offset: 0, 0
   index: -1
 shark4
   rotate: false
-  xy: 2, 168
-  size: 146, 70
-  orig: 146, 70
+  xy: 2, 96
+  size: 100, 86
+  orig: 100, 86
   offset: 0, 0
   index: -1
 shark5
   rotate: false
-  xy: 150, 168
-  size: 106, 70
-  orig: 106, 70
+  xy: 904, 829
+  size: 100, 100
+  orig: 100, 100
   offset: 0, 0
   index: -1
 shark6
   rotate: false
-  xy: 904, 915
+  xy: 104, 112
   size: 114, 70
   orig: 114, 70
   offset: 0, 0

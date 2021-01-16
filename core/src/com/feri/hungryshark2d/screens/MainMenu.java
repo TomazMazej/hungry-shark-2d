@@ -142,7 +142,7 @@ public class MainMenu extends ScreenAdapter {
             }
         });
 
-        table.add(muteBImageButton).padRight(-550);
+        table.add(muteBImageButton).padRight(-500);
         table.row();
         table.add(title).padTop(-40);
         table.row();

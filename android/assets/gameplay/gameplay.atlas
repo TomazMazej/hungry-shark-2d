@@ -6,133 +6,133 @@ filter: Nearest,Nearest
 repeat: none
 bg
   rotate: false
-  xy: 2, 149
+  xy: 2, 156
   size: 800, 354
   orig: 800, 354
   offset: 0, 0
   index: -1
 blank
   rotate: false
-  xy: 2, 2
+  xy: 1008, 509
   size: 1, 1
   orig: 1, 1
   offset: 0, 0
   index: -1
 fish
   rotate: false
-  xy: 952, 453
+  xy: 2, 2
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
 mine
   rotate: false
-  xy: 804, 165
+  xy: 54, 2
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
 shark2Dead
   rotate: false
-  xy: 150, 77
-  size: 132, 70
-  orig: 132, 70
+  xy: 906, 206
+  size: 100, 60
+  orig: 100, 60
   offset: 0, 0
   index: -1
 shark2Left
   rotate: false
-  xy: 804, 361
-  size: 132, 70
-  orig: 132, 70
+  xy: 512, 94
+  size: 100, 60
+  orig: 100, 60
   offset: 0, 0
   index: -1
 shark2Right
   rotate: false
-  xy: 150, 5
-  size: 132, 70
-  orig: 132, 70
+  xy: 614, 94
+  size: 100, 60
+  orig: 100, 60
   offset: 0, 0
   index: -1
 shark3Dead
   rotate: false
-  xy: 392, 77
-  size: 100, 70
-  orig: 100, 70
+  xy: 804, 238
+  size: 100, 82
+  orig: 100, 82
   offset: 0, 0
   index: -1
 shark3Left
   rotate: false
-  xy: 804, 217
-  size: 100, 70
-  orig: 100, 70
+  xy: 906, 340
+  size: 100, 82
+  orig: 100, 82
   offset: 0, 0
   index: -1
 shark3Right
   rotate: false
-  xy: 392, 5
-  size: 100, 70
-  orig: 100, 70
+  xy: 308, 72
+  size: 100, 82
+  orig: 100, 82
   offset: 0, 0
   index: -1
 shark4Dead
   rotate: false
-  xy: 2, 77
-  size: 146, 70
-  orig: 146, 70
+  xy: 804, 322
+  size: 100, 86
+  orig: 100, 86
   offset: 0, 0
   index: -1
 shark4Left
   rotate: false
-  xy: 804, 433
-  size: 146, 70
-  orig: 146, 70
+  xy: 906, 424
+  size: 100, 86
+  orig: 100, 86
   offset: 0, 0
   index: -1
 shark4Right
   rotate: false
-  xy: 2, 5
-  size: 146, 70
-  orig: 146, 70
+  xy: 206, 68
+  size: 100, 86
+  orig: 100, 86
   offset: 0, 0
   index: -1
 shark5Dead
   rotate: false
-  xy: 284, 77
-  size: 106, 70
-  orig: 106, 70
+  xy: 2, 54
+  size: 100, 100
+  orig: 100, 100
   offset: 0, 0
   index: -1
 shark5Left
   rotate: false
-  xy: 804, 289
-  size: 106, 70
-  orig: 106, 70
+  xy: 804, 410
+  size: 100, 100
+  orig: 100, 100
   offset: 0, 0
   index: -1
 shark5Right
   rotate: false
-  xy: 284, 5
-  size: 106, 70
-  orig: 106, 70
+  xy: 104, 54
+  size: 100, 100
+  orig: 100, 100
   offset: 0, 0
   index: -1
 sharkDead
   rotate: false
-  xy: 494, 77
+  xy: 804, 166
   size: 100, 70
   orig: 100, 70
   offset: 0, 0
   index: -1
 sharkLeft
   rotate: false
-  xy: 494, 5
+  xy: 906, 268
   size: 100, 70
   orig: 100, 70
   offset: 0, 0
   index: -1
 sharkRight
   rotate: false
-  xy: 596, 77
+  xy: 410, 84
   size: 100, 70
   orig: 100, 70
   offset: 0, 0
