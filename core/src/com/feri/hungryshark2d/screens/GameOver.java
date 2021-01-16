@@ -34,31 +34,22 @@ import static com.feri.hungryshark2d.config.GameConfig.WIDTH;
 
 
 public class GameOver extends ScreenAdapter {
-    private static final float PADDING = 20.0f;
 
     private FillViewport fillViewport;
-    private SpriteBatch batch;
     public static BitmapFont font;
     private HungryShark2D game;
     private AssetManager manager;
     private Stage stage;
-    private final GlyphLayout layout = new GlyphLayout();
-    private Skin skin;
 
     public GameOver(HungryShark2D hs2d)  {
-        batch = new SpriteBatch();
         this.game = hs2d;
         manager = game.getAssetManager();
-
-        TextureAtlas gamePlayAtlas = manager.get(AssetDescriptors.GAME_PLAY);
     }
 
     @Override
     public void show() {
         fillViewport = new FillViewport(WIDTH, HEIGHT);
         stage = new Stage(fillViewport, game.getBatch());
-
-        skin = manager.get(AssetDescriptors.UI_SKIN);
 
         Gdx.input.setInputProcessor(stage);
         stage.addActor(createUI());
@@ -142,7 +133,6 @@ public class GameOver extends ScreenAdapter {
     public void resize(int width, int height) {
         super.resize(width, height);
         fillViewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
-        //tableMain.pack();
     }
 
     @Override
