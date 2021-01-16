@@ -7,10 +7,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.feri.hungryshark2d.HungryShark2D;
-import com.feri.hungryshark2d.retrofit.GetRequest;
+import com.feri.hungryshark2d.retrofit.GetCoinsRequest;
+import com.feri.hungryshark2d.retrofit.GetSkinsRequest;
 import com.feri.hungryshark2d.retrofit.JsonPlaceHolderApi;
 import com.feri.hungryshark2d.retrofit.PostRequest;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 import retrofit2.Call;
@@ -35,6 +37,7 @@ public class GameManager {
     private PostRequest postRequest;
     private JsonPlaceHolderApi jsonPlaceHolderApi;
     private int c = 0;
+    private ArrayList<String> skins;
     private boolean mute;
     private int sharkId;
 
@@ -46,39 +49,71 @@ public class GameManager {
         mute = prefs.getBoolean(MUTE, false);
         sharkId = prefs.getInteger(SHARK_ID, 0);
         setAppId();
+        skins = new ArrayList<String>();
         coins = c;
     }
 
-    public void getCoinsFromBC(){
+    public boolean hasSkin(int id){
+        for (int i = 0; i < skins.size(); i++) {
+            if (skins.get(i).equals("" + id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void getDataFromBC(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://localhost:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<GetRequest> call = jsonPlaceHolderApi.getPost(idUSER);
+        Call<GetCoinsRequest> coinsCall = jsonPlaceHolderApi.getCoinsPost(idUSER);
+        Call<GetSkinsRequest> skinsCall = jsonPlaceHolderApi.getSkinsPost(idUSER);
 
-        call.enqueue(new Callback<GetRequest>() {
+        coinsCall.enqueue(new Callback<GetCoinsRequest>() {
             @Override
-            public void onResponse(Call<GetRequest> call, Response<GetRequest> response) {
+            public void onResponse(Call<GetCoinsRequest> call, Response<GetCoinsRequest> response) {
                 if(!response.isSuccessful()){
                     System.out.println("Code: " + response.code());
                     return;
                 }
                 else{
-                    c = response.body().getCoins();
-                    System.out.println(c);
+                    coins = response.body().getCoins();
+                    System.out.println(coins);
                 }
             }
 
             @Override
-            public void onFailure(Call<GetRequest> call, Throwable t) {
+            public void onFailure(Call<GetCoinsRequest> call, Throwable t) {
+                System.out.println(t);
+            }
+        });
+
+        skinsCall.enqueue(new Callback<GetSkinsRequest>() {
+            @Override
+            public void onResponse(Call<GetSkinsRequest> call, Response<GetSkinsRequest> response) {
+                if(!response.isSuccessful()){
+                    System.out.println("Code: " + response.code());
+                    return;
+                }
+                else{
+                    skins = response.body().getSkins();
+                    for(int i = 0; i < skins.size(); i++){
+                        System.out.println(skins.get(i));
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetSkinsRequest> call, Throwable t) {
                 System.out.println(t);
             }
         });
     }
 
-    public void postCoinsToBC(int coins){
+    public void postCoinsToBC(int coins, String skin){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://localhost:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -86,7 +121,13 @@ public class GameManager {
 
         //postRequest = new PostRequest(idUSER, coins, "");
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<PostRequest> call = jsonPlaceHolderApi.createPost(idUSER, "", coins); //poslje POST
+        Call<PostRequest> call;
+        if(skin == ""){
+            call = jsonPlaceHolderApi.createCoinPost(idUSER, skin, coins);
+        }else{
+            call = jsonPlaceHolderApi.createSkinPost(idUSER, skin, coins);
+        }
+        //poslje POST
         //System.out.println(new Gson().toJson(postRequest));
 
         call.enqueue(new Callback<PostRequest>() {
@@ -205,8 +246,12 @@ public class GameManager {
         return coins;
     }
 
+    public void setSkin(int coins, String skin){
+        postCoinsToBC(coins,skin);
+        this.coins = c;
+    }
     public void setCoins(int coins) {
-        postCoinsToBC(coins);
+        postCoinsToBC(coins,"");
         this.coins = c;
     }
 }

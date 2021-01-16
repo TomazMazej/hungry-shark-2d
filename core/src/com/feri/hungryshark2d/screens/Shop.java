@@ -24,6 +24,8 @@ import com.feri.hungryshark2d.HungryShark2D;
 import com.feri.hungryshark2d.assets.AssetDescriptors;
 import com.feri.hungryshark2d.assets.RegionNames;
 
+import java.util.ArrayList;
+
 import static com.feri.hungryshark2d.config.GameConfig.HEIGHT;
 import static com.feri.hungryshark2d.config.GameConfig.WIDTH;
 import static com.feri.hungryshark2d.util.GameManager.INSTANCE;
@@ -35,6 +37,7 @@ public class Shop extends ScreenAdapter {
     private Stage stage;
     private SpriteBatch batch;
     private Skin skin;
+    private int[] prices = {0,150,200,250,300};
 
     public Shop(HungryShark2D hs2d)  {
         batch = new SpriteBatch();
@@ -61,6 +64,21 @@ public class Shop extends ScreenAdapter {
         stage.draw();
     }
 
+    private void selectSkin(int id){
+        if(INSTANCE.hasSkin(id)){
+            INSTANCE.setSharkId(id);
+        }else if(INSTANCE.getCoins() >= prices[id]){
+            INSTANCE.setSkin(prices[id],""+id);
+        }
+    }
+
+    private String ownsSkin(int id){
+        if(INSTANCE.hasSkin(id)){
+            return "";
+        }
+        return "" + prices[id];
+    }
+
     private Actor createUI(){
         final Table table = new Table();
         table.defaults().pad(10);
@@ -84,17 +102,14 @@ public class Shop extends ScreenAdapter {
         TextureRegion scanButton = gamePlayAtlas.findRegion(RegionNames.SCAN_B);
         TextureRegion coin = gamePlayAtlas.findRegion(RegionNames.COIN);
         TextureRegion coin2 = gamePlayAtlas.findRegion(RegionNames.COIN2);
-        TextureRegion coin3 = gamePlayAtlas.findRegion(RegionNames.COIN2);
-        TextureRegion coin4 = gamePlayAtlas.findRegion(RegionNames.COIN2);
-        TextureRegion coin5 = gamePlayAtlas.findRegion(RegionNames.COIN2);
 
         Image coin2Image = new Image(new TextureRegionDrawable(new TextureRegion(coin2)));
         coin2Image.setSize(20,20);
-        Image coin3Image = new Image(new TextureRegionDrawable(new TextureRegion(coin3)));
+        Image coin3Image = new Image(new TextureRegionDrawable(new TextureRegion(coin2)));
         coin2Image.setSize(20,20);
-        Image coin4Image = new Image(new TextureRegionDrawable(new TextureRegion(coin4)));
+        Image coin4Image = new Image(new TextureRegionDrawable(new TextureRegion(coin2)));
         coin2Image.setSize(20,20);
-        Image coin5Image = new Image(new TextureRegionDrawable(new TextureRegion(coin5)));
+        Image coin5Image = new Image(new TextureRegionDrawable(new TextureRegion(coin2)));
         coin2Image.setSize(20,20);
 
         Image coinImage = new Image(new TextureRegionDrawable(new TextureRegion(coin)));
@@ -121,11 +136,11 @@ public class Shop extends ScreenAdapter {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                INSTANCE.setSharkId(1);
+                selectSkin(1);
             }
         });
 
-        Label price2 = new Label("150",skin);
+        Label price2 = new Label(ownsSkin(1),skin);
 
         ImageButton.ImageButtonStyle shark3ImageStyle = new ImageButton.ImageButtonStyle();
         shark3ImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(shark3));
@@ -134,11 +149,11 @@ public class Shop extends ScreenAdapter {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                INSTANCE.setSharkId(2);
+                selectSkin(2);
             }
         });
 
-        Label price3 = new Label("200",skin);
+        Label price3 = new Label(ownsSkin(2),skin);
 
         ImageButton.ImageButtonStyle shark4ImageStyle = new ImageButton.ImageButtonStyle();
         shark4ImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(shark4));
@@ -147,11 +162,11 @@ public class Shop extends ScreenAdapter {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                INSTANCE.setSharkId(3);
+                selectSkin(3);
             }
         });
 
-        Label price4 = new Label("250",skin);
+        Label price4 = new Label(ownsSkin(3),skin);
 
         ImageButton.ImageButtonStyle shark5ImageStyle = new ImageButton.ImageButtonStyle();
         shark5ImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(shark5));
@@ -160,11 +175,11 @@ public class Shop extends ScreenAdapter {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                INSTANCE.setSharkId(4);
+                selectSkin(4);
             }
         });
 
-        Label price5 = new Label("300",skin);
+        Label price5 = new Label(ownsSkin(4),skin);
 
         ImageButton.ImageButtonStyle shark6ImageStyle = new ImageButton.ImageButtonStyle();
         shark6ImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(shark6));

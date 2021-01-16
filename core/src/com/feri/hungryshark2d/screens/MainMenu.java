@@ -7,7 +7,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -42,7 +41,7 @@ public class MainMenu extends ScreenAdapter {
         manager = game.getAssetManager();
 
         TextureAtlas gamePlayAtlas = manager.get(AssetDescriptors.GAME_PLAY);
-        GameManager.INSTANCE.getCoinsFromBC();
+        GameManager.INSTANCE.getDataFromBC();
 
         background_music = manager.get(AssetDescriptors.BACKGROUND_MUSIC);
         background_music.play();

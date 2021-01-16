@@ -272,7 +272,8 @@ public class Gameplay extends ScreenAdapter {
                     if (object.bounds.overlaps(shark.bounds)) {
                         if (!INSTANCE.getMute())
                             mine_sound.play();
-                        Shark.sharkHealth -= 0.1;
+                        //TODO; change to 0.1
+                        Shark.sharkHealth -= 1;
                         ((Mine) object).finish();
                         iter.remove();
                     }
@@ -287,7 +288,8 @@ public class Gameplay extends ScreenAdapter {
                         if (!INSTANCE.getMute()) {
                             fish_sound.play();
                         }
-                        score = INSTANCE.incrementScore(10);
+                        //TODO: change to 10
+                        score = INSTANCE.incrementScore(10000);
                         if (score%100==0)
                             MINE_SPEED += 100; //speeds up
                         ((Fish) object).finish();
@@ -302,7 +304,7 @@ public class Gameplay extends ScreenAdapter {
                 font.setColor(Color.RED);
                 float w = getFontSize(font,"GAMEOVER");
                 //font.draw(batch, "GAMEOVER", Gdx.graphics.getWidth()/2f - w/2, Gdx.graphics.getHeight() / 2f);
-                INSTANCE.setCoins(10);
+                INSTANCE.setCoins(score/10);
                 game.gotoScreen(HungryShark2D.Screens.GAMEOVER);
             }
             batch.end();
