@@ -37,6 +37,7 @@ public class Shop extends ScreenAdapter {
     private Stage stage;
     private SpriteBatch batch;
     private Skin skin;
+    private Label coins;
     private int[] prices = {0,150,200,250,300};
 
     public Shop(HungryShark2D hs2d)  {
@@ -64,12 +65,15 @@ public class Shop extends ScreenAdapter {
         stage.draw();
     }
 
-    private void selectSkin(int id){
+    private boolean selectSkin(int id){
         if(INSTANCE.hasSkin(id)){
             INSTANCE.setSharkId(id);
+            game.gotoScreen(HungryShark2D.Screens.GAMEPLAY);
         }else if(INSTANCE.getCoins() >= prices[id]){
-            INSTANCE.setSkin(prices[id],""+id);
+            coins.setText(INSTANCE.setSkin(prices[id],""+id));
+            return true;
         }
+        return false;
     }
 
     private String ownsSkin(int id){
@@ -114,7 +118,9 @@ public class Shop extends ScreenAdapter {
 
         Image coinImage = new Image(new TextureRegionDrawable(new TextureRegion(coin)));
         coinImage.setSize(5,5);
-        Label coins = new Label(Integer.toString(INSTANCE.getCoins()), skin);
+        coins = new Label(Integer.toString(INSTANCE.getCoins()), skin);
+
+        final Label price1 = new Label("",skin);
 
         ImageButton.ImageButtonStyle shark1ImageStyle = new ImageButton.ImageButtonStyle();
         shark1ImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(shark1));
@@ -127,7 +133,14 @@ public class Shop extends ScreenAdapter {
             }
         });
 
-        Label price1 = new Label("",skin);
+        final Label price2 = new Label(ownsSkin(1),skin);
+
+        final Group grp = new Group();
+        if(!price2.textEquals("")) {
+            coin2Image.setPosition(-25, 3);
+            grp.addActor(coin2Image);
+            grp.addActorAfter(coin2Image, price2);
+        }
 
         ImageButton.ImageButtonStyle shark2ImageStyle = new ImageButton.ImageButtonStyle();
         shark2ImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(shark2));
@@ -136,11 +149,20 @@ public class Shop extends ScreenAdapter {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                selectSkin(1);
+                if(selectSkin(1)){
+                    price2.setText("");
+                    grp.clear();
+                }
             }
         });
 
-        Label price2 = new Label(ownsSkin(1),skin);
+        final Label price3 = new Label(ownsSkin(2),skin);
+        final Group grp2 = new Group();
+        if(!price3.textEquals("")) {
+            coin3Image.setPosition(-25, 3);
+            grp2.addActor(coin3Image);
+            grp2.addActorAfter(coin3Image, price3);
+        }
 
         ImageButton.ImageButtonStyle shark3ImageStyle = new ImageButton.ImageButtonStyle();
         shark3ImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(shark3));
@@ -149,11 +171,20 @@ public class Shop extends ScreenAdapter {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                selectSkin(2);
+                if(selectSkin(2)){
+                    price3.setText("");
+                    grp2.clear();
+                }
             }
         });
 
-        Label price3 = new Label(ownsSkin(2),skin);
+        final Label price4 = new Label(ownsSkin(3),skin);
+        final Group grp3 = new Group();
+        if(!price4.textEquals("")) {
+            coin4Image.setPosition(-25, 2);
+            grp3.addActor(coin4Image);
+            grp3.addActorAfter(coin4Image, price4);
+        }
 
         ImageButton.ImageButtonStyle shark4ImageStyle = new ImageButton.ImageButtonStyle();
         shark4ImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(shark4));
@@ -162,11 +193,20 @@ public class Shop extends ScreenAdapter {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                selectSkin(3);
+                if(selectSkin(3)){
+                    price4.setText("");
+                    grp3.clear();
+                }
             }
         });
 
-        Label price4 = new Label(ownsSkin(3),skin);
+        final Label price5 = new Label(ownsSkin(4),skin);
+        final Group grp4 = new Group();
+        if(!price5.textEquals("")) {
+            coin5Image.setPosition(-25, 2);
+            grp4.addActor(coin5Image);
+            grp4.addActorAfter(coin5Image, price5);
+        }
 
         ImageButton.ImageButtonStyle shark5ImageStyle = new ImageButton.ImageButtonStyle();
         shark5ImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(shark5));
@@ -175,11 +215,12 @@ public class Shop extends ScreenAdapter {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                selectSkin(4);
+                if(selectSkin(4)){
+                    price5.setText("");
+                    grp4.clear();
+                }
             }
         });
-
-        Label price5 = new Label(ownsSkin(4),skin);
 
         ImageButton.ImageButtonStyle shark6ImageStyle = new ImageButton.ImageButtonStyle();
         shark6ImageStyle.imageUp = new TextureRegionDrawable(new TextureRegion(shark6));
@@ -211,26 +252,6 @@ public class Shop extends ScreenAdapter {
                 super.clicked(event, x, y);
             }
         });
-
-        Group grp=new Group();
-        coin2Image.setPosition(-25, 3);
-        grp.addActor(coin2Image);
-        grp.addActorAfter(coin2Image, price2);
-
-        Group grp2=new Group();
-        coin3Image.setPosition(-25, 3);
-        grp2.addActor(coin3Image);
-        grp2.addActorAfter(coin3Image, price3);
-
-        Group grp3=new Group();
-        coin4Image.setPosition(-25, 2);
-        grp3.addActor(coin4Image);
-        grp3.addActorAfter(coin4Image, price4);
-
-        Group grp4=new Group();
-        coin5Image.setPosition(-25, 2);
-        grp4.addActor(coin5Image);
-        grp4.addActorAfter(coin5Image, price5);
 
         table.add(coins).padRight(-820).padTop(-5);
         table.add(coinImage).padRight(-450).padTop(-5);

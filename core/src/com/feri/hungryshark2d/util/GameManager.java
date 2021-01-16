@@ -246,9 +246,10 @@ public class GameManager {
         return coins;
     }
 
-    public void setSkin(int coins, String skin){
+    public int setSkin(int coins, String skin){
         postCoinsToBC(coins,skin);
-        this.coins = c;
+        getDataFromBC();
+        return (this.coins-coins);
     }
     public void setCoins(int coins) {
         postCoinsToBC(coins,"");

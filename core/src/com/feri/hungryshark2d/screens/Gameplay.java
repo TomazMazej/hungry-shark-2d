@@ -272,8 +272,7 @@ public class Gameplay extends ScreenAdapter {
                     if (object.bounds.overlaps(shark.bounds)) {
                         if (!INSTANCE.getMute())
                             mine_sound.play();
-                        //TODO; change to 0.1
-                        Shark.sharkHealth -= 1;
+                        Shark.sharkHealth -= 0.1;
                         ((Mine) object).finish();
                         iter.remove();
                     }
@@ -288,8 +287,7 @@ public class Gameplay extends ScreenAdapter {
                         if (!INSTANCE.getMute()) {
                             fish_sound.play();
                         }
-                        //TODO: change to 10
-                        score = INSTANCE.incrementScore(10000);
+                        score = INSTANCE.incrementScore(10);
                         if (score%100==0)
                             MINE_SPEED += 100; //speeds up
                         ((Fish) object).finish();
