@@ -20,8 +20,8 @@ public class GameConfig {
   public static final long FISH_SPAWN_TIME = 2000000000;
 
   //screen
-  public static float WIDTH = 800;
-  public static float HEIGHT = 350;
+  public static float WIDTH = 640;
+  public static float HEIGHT = 360;
 
   public static boolean debug = false;
 

@@ -128,6 +128,7 @@ public class Shop extends ScreenAdapter {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 INSTANCE.setSharkId(0);
+                game.gotoScreen(HungryShark2D.Screens.GAMEPLAY);
             }
         });
 
@@ -251,8 +252,8 @@ public class Shop extends ScreenAdapter {
             }
         });
 
-        table.add(coins).padRight(-800).padTop(10);
-        table.add(coinImage).padRight(-500).padTop(10);
+        table.add(coins).padRight(-780).padTop(10);
+        table.add(coinImage).padRight(-450).padTop(10);
         table.add(title).padLeft(-250).padTop(15);
         table.row();
         table.columnDefaults(1);
