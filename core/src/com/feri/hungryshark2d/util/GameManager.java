@@ -34,7 +34,6 @@ public class GameManager {
     private int highScore;
     private int coins;
     private String idUSER;
-    private PostRequest postRequest;
     private BlockchainApi blockchainApi;
     private int c = 0;
     private ArrayList<String> skins;
@@ -51,15 +50,6 @@ public class GameManager {
         setAppId();
         skins = new ArrayList<String>();
         coins = c;
-    }
-
-    public boolean hasSkin(int id){
-        for (int i = 0; i < skins.size(); i++) {
-            if (skins.get(i).equals("" + id)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public void getDataFromBC(){
@@ -168,6 +158,15 @@ public class GameManager {
             prefs.flush();
         }
         return score;
+    }
+
+    public boolean hasSkin(int id){
+        for (int i = 0; i < skins.size(); i++) {
+            if (skins.get(i).equals("" + id)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static BitmapFont generateFont() {

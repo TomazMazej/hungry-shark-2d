@@ -48,7 +48,6 @@ public class Shop extends ScreenAdapter {
     public void show() {
         fillViewport = new FillViewport(WIDTH, HEIGHT);
         stage = new Stage(fillViewport, game.getBatch());
-
         skin = manager.get(AssetDescriptors.UI_SKIN);
 
         Gdx.input.setInputProcessor(stage);
@@ -58,7 +57,6 @@ public class Shop extends ScreenAdapter {
     @Override
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
         stage.act();
         stage.draw();
     }
@@ -288,7 +286,6 @@ public class Shop extends ScreenAdapter {
     public void resize(int width, int height) {
         super.resize(width, height);
         fillViewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
-        //tableMain.pack();
     }
 
     @Override

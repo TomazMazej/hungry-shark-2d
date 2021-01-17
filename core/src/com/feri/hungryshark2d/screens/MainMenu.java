@@ -37,7 +37,6 @@ public class MainMenu extends ScreenAdapter {
         this.game = hs2d;
         manager = game.getAssetManager();
 
-        TextureAtlas gamePlayAtlas = manager.get(AssetDescriptors.GAME_PLAY);
         GameManager.INSTANCE.getDataFromBC();
 
         background_music = manager.get(AssetDescriptors.BACKGROUND_MUSIC);
@@ -167,7 +166,6 @@ public class MainMenu extends ScreenAdapter {
     public void resize(int width, int height) {
         super.resize(width, height);
         fillViewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
-        //tableMain.pack();
     }
 
     @Override
