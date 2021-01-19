@@ -10,6 +10,9 @@ android {
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
             jniLibs.srcDirs = ['libs']
+            jni {
+                srcDirs 'src/main/jni', 'src/main/jniLibs/'
+            }
         }
 
     }
@@ -18,7 +21,7 @@ android {
     }
     defaultConfig {
         applicationId "com.feri.hungryshark2d"
-        minSdkVersion 9
+        minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -87,4 +90,10 @@ task run(type: Exec) {
 
     def adb = path + "/platform-tools/adb"
     commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.feri.hungryshark2d/com.feri.hungryshark2d.AndroidLauncher'
+}
+
+dependencies {
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation project(path: ':openCVLibrary3413')
 }
