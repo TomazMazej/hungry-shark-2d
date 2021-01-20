@@ -7,19 +7,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.feri.hungryshark2d.HungryShark2D;
+import com.feri.hungryshark2d.retrofit.BlockchainApi;
 import com.feri.hungryshark2d.retrofit.GetCoinsRequest;
 import com.feri.hungryshark2d.retrofit.GetSkinsRequest;
-import com.feri.hungryshark2d.retrofit.BlockchainApi;
 import com.feri.hungryshark2d.retrofit.PostRequest;
 
-import org.hamcrest.core.Is;
-import org.junit.Test;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import retrofit2.Call;
@@ -27,14 +20,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static java.util.OptionalDouble.empty;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsCollectionContaining.hasItem;
-import static org.junit.Assert.assertEquals;
 
 public class GameManager {
 
