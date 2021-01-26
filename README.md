@@ -11,5 +11,7 @@
 * Using Retrofit2 to send POST&GET requests to blockchain server
 
 ## Pictures
-![Slika1](/slike/slika1.jpg)
-![Slika2](/slike/slika2.jpg)
+![Image1](/pictures/gameplay.png)
+![Image2](/pictures/shopscreen.png)
+![Image3](/pictures/mainmenu.png)
+
