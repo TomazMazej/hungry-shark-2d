@@ -1,13 +1,14 @@
 # Hungry Shark 2D
+Hungry Shark 2D Android Game
 
 ## Usage and functions
 * Fun Android game
 * Shop to buy new skins
+* Stores coins and skins to Blockchain (Requires [Hungry Shard 2D Blockchain Server](https://github.com/TomazMazej/hungry_shark_blockchain_server))
 
 ## Tehnologies
 * Based in Android Studio
 * Built using libGDX framework
-* Uses blockchain to store coins and skins
 * Using Retrofit2 to send POST&GET requests to blockchain server
 
 ## Pictures
