@@ -10,7 +10,7 @@ Hungry Shark 2D Android Game
 * Based in Android Studio
 * Built using libGDX framework
 * Using Retrofit2 to send POST&GET requests to blockchain server
-* Requires running [Hungry Shard 2D Blockchain Server](https://github.com/TomazMazej/hungry_shark_blockchain_server)
+* Requires running [Hungry Shark 2D Blockchain Server](https://github.com/TomazMazej/hungry_shark_blockchain_server)
 
 ## Pictures
 ![Image1](/pictures/gameplay.png)
